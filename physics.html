@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পদার্থবিজ্ঞান — এক পরমাণু</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== গ্লোবাল সেটিং ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background-color: #000000;
+            color: #d4d4d4;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ========== নেভিগেশন বার ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1f1f1f;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a18cd1, #6c8cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 1.05em;
+        }
+
+        .nav-links a {
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #a18cd1;
+        }
+
+        /* ========== হিরো সেকশন ========== */
+        .hero {
+            padding: 140px 20px 70px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f093fb, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.25em;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== ক্লাস সেকশন ========== */
+        .class-section {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .class-title {
+            font-size: 2.2em;
+            margin: 60px 0 30px;
+            color: #ffffff;
+            border-left: 5px solid #f472b6;
+            padding-left: 20px;
+        }
+
+        /* চ্যাপ্টার কার্ড গ্রিড */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .chapter-card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 16px;
+            padding: 25px 20px;
+            transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-6px);
+            border-color: #f472b6;
+            box-shadow: 0 12px 25px rgba(244, 114, 182, 0.25);
+        }
+
+        .chapter-num {
+            font-size: 0.9em;
+            color: #f472b6;
+            font-weight: 600;
+        }
+
+        .chapter-card h3 {
+            font-size: 1.3em;
+            color: #ffffff;
+        }
+
+        .chapter-card p {
+            font-size: 0.95em;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* ========== ফুটার ========== */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.95em;
+        }
+
+        /* ব্যাক লিংক */
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #f472b6;
+            font-size: 1.05em;
+            transition: color 0.2s;
+        }
+
+        .back-home:hover {
+            color: #f093fb;
+        }
+
+        /* ========== রেসপনসিভ ========== */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .class-title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- নেভিগেশন -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">এক পরমাণু</a>
+        <div class="nav-links">
+            <a href="math.html">গণিত</a>
+            <a href="physics.html" style="color:#f472b6;">পদার্থবিজ্ঞান</a>
+            <a href="index.html#about">আমাদের কথা</a>
+        </div>
+    </nav>
+
+    <!-- হিরো -->
+    <section class="hero">
+        <a href="index.html" class="back-home">← হোমে ফিরে যাও</a>
+        <h1>পদার্থবিজ্ঞান</h1>
+        <p>নবম-দশম ও একাদশ-দ্বাদশ শ্রেণির প্রতিটি অধ্যায়ের নোট, সূত্র ও কনসেপ্ট—সহজ বাংলায়।</p>
+    </section>
+
+    <!-- নবম-দশম শ্রেণি -->
+    <div class="class-section">
+        <h2 class="class-title">📗 নবম-দশম শ্রেণি</h2>
+        <div class="chapter-grid">
+            <!-- অধ্যায় ১ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ১</span>
+                <h3>ভৌত জগৎ ও পরিমাপ</h3>
+                <p>ভৌতরাশি, একক, মাপার যন্ত্র, স্কেল ও ত্রুটির ধারণা।</p>
+            </a>
+            <!-- অধ্যায় ২ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ২</span>
+                <h3>গতি</h3>
+                <p>সরল, সমত্বরণ ও অসমত্বরণ গতি, লেখচিত্র, পড়ন্ত বস্তু।</p>
+            </a>
+            <!-- অধ্যায় ৩ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৩</span>
+                <h3>বল</h3>
+                <p>নিউটনের গতিসূত্র, ঘর্ষণ, অভিকর্ষ, ভারকেন্দ্র ও স্থিতিস্থাপকতা।</p>
+            </a>
+            <!-- অধ্যায় ৪ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৪</span>
+                <h3>শক্তি ও ক্ষমতা</h3>
+                <p>কাজ, শক্তি, শক্তির রূপান্তর, সংরক্ষণ সূত্র, ক্ষমতা ও দক্ষতা।</p>
+            </a>
+            <!-- অধ্যায় ৫ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৫</span>
+                <h3>পদার্থের অবস্থা ও চাপ</h3>
+                <p>ঘনত্ব, চাপ, আর্কিমিডিসের সূত্র, প্লবতা, স্থিতিস্থাপকতা।</p>
+            </a>
+            <!-- অধ্যায় ৬ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৬</span>
+                <h3>তাপ</h3>
+                <p>তাপমাত্রা, তাপগতিবিদ্যা, তাপের পরিমাপ, তাপ পরিবহণ।</p>
+            </a>
+            <!-- অধ্যায় ৭ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৭</span>
+                <h3>আলো</h3>
+                <p>আলোর প্রতিফলন, প্রতিসরণ, লেন্স, বিচ্ছুরণ ও রংধনু।</p>
+            </a>
+            <!-- অধ্যায় ৮ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৮</span>
+                <h3>চল তড়িৎ</h3>
+                <p>তড়িৎ প্রবাহ, বিভব, রোধ, ওহমের সূত্র, তড়িৎ ক্ষমতা ও অপচয়।</p>
+            </a>
+            <!-- অধ্যায় ৯ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৯</span>
+                <h3>পারমাণবিক মডেল ও তেজস্ক্রিয়তা</h3>
+                <p>পরমাণুর গঠন, আইসোটোপ, তেজস্ক্রিয়তা, অর্ধায়ু ও ব্যবহার।</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- একাদশ-দ্বাদশ শ্রেণি -->
+    <div class="class-section">
+        <h2 class="class-title">📕 একাদশ-দ্বাদশ শ্রেণি</h2>
+        <div class="chapter-grid">
+            <!-- অধ্যায় ১ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ১</span>
+                <h3>ভেক্টর</h3>
+                <p>ভেক্টর রাশি, যোগ-বিয়োগ, স্কেলার গুণন, ত্রিমাত্রিক ভেক্টর।</p>
+            </a>
+            <!-- অধ্যায় ২ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ২</span>
+                <h3>গতিবিদ্যা</h3>
+                <p>সরলরেখা ও সমতলে গতি, আপেক্ষিক গতি, প্রাসের গতি।</p>
+            </a>
+            <!-- অধ্যায় ৩ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৩</span>
+                <h3>নিউটনের গতিসূত্র</h3>
+                <p>বল, ভরবেগ, ঘর্ষণ, বৃত্তীয় গতি, ব্যাংকিং ও নিত্য চোঙ।</p>
+            </a>
+            <!-- অধ্যায় ৪ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৪</span>
+                <h3>কাজ, শক্তি ও ক্ষমতা</h3>
+                <p>কাজ, গতিশক্তি, বিভবশক্তি, শক্তির নিত্যতা, সংঘর্ষ।</p>
+            </a>
+            <!-- অধ্যায় ৫ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৫</span>
+                <h3>মহাকর্ষ</h3>
+                <p>মহাকর্ষ সূত্র, অভিকর্ষজ ত্বরণ, কৃত্রিম উপগ্রহ, মুক্তিবেগ।</p>
+            </a>
+            <!-- অধ্যায় ৬ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৬</span>
+                <h3>পদার্থের গাঠনিক ধর্ম</h3>
+                <p>স্থিতিস্থাপকতা, পৃষ্ঠটান, সান্দ্রতা, তরল প্রবাহ।</p>
+            </a>
+            <!-- অধ্যায় ৭ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৭</span>
+                <h3>তাপগতিবিদ্যা</h3>
+                <p>তাপমাত্রা, গ্যাসের সূত্র, তাপগতিবিদ্যার প্রথম ও দ্বিতীয় সূত্র।</p>
+            </a>
+            <!-- অধ্যায় ৮ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৮</span>
+                <h3>তরঙ্গ ও শব্দ</h3>
+                <p>তরঙ্গগতি, শব্দের বৈশিষ্ট্য, ডপলার ক্রিয়া, আল্ট্রাসাউন্ড।</p>
+            </a>
+            <!-- অধ্যায় ৯ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ৯</span>
+                <h3>আলো (জ্যামিতিক আলোকবিজ্ঞান)</h3>
+                <p>প্রতিফলন, প্রতিসরণ, লেন্সের সমীকরণ, অপটিক্যাল যন্ত্র।</p>
+            </a>
+            <!-- অধ্যায় ১০ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ১০</span>
+                <h3>তড়িৎ (স্থির তড়িৎ)</h3>
+                <p>আধান, কুলম্বের সূত্র, তড়িৎক্ষেত্র, বিভব, ধারক।</p>
+            </a>
+            <!-- অধ্যায় ১১ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ১১</span>
+                <h3>চল তড়িৎ</h3>
+                <p>ওহমের সূত্র, কির্শফের সূত্র, রোধের সংযোগ, তড়িৎ কোষ।</p>
+            </a>
+            <!-- অধ্যায় ১২ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ১২</span>
+                <h3>চৌম্বকত্ব ও তড়িৎচুম্বকত্ব</h3>
+                <p>চুম্বকক্ষেত্র, ফ্যারাডের সূত্র, আবেশ, এসি ও ডিসি।</p>
+            </a>
+            <!-- অধ্যায় ১৩ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ১৩</span>
+                <h3>আধুনিক পদার্থবিজ্ঞান</h3>
+                <p>ফটোইলেকট্রিক ক্রিয়া, এক্স-রে, লেজার, নিউক্লিয়ার ফিজিক্স।</p>
+            </a>
+            <!-- অধ্যায় ১৪ -->
+            <a href="#" class="chapter-card">
+                <span class="chapter-num">অধ্যায় ১৪</span>
+                <h3>সেমিকন্ডাক্টর ও ইলেকট্রনিক্স</h3>
+                <p>ব্যান্ড তত্ত্ব, ডায়োড, ট্রানজিস্টর, লজিক গেট।</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- ফুটার -->
+    <footer class="footer">
+        <p>© ২০২৫ এক পরমাণু — শিক্ষার্থীদের জন্য উন্মুক্ত শিক্ষা সহায়তা।</p>
+    </footer>
+
+</body>
+</html>
