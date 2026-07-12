@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমাদের কথা — এক পরমাণু</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== গ্লোবাল সেটিং ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background-color: #000000;
+            color: #d4d4d4;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ========== নেভিগেশন বার ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1f1f1f;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a18cd1, #6c8cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 1.05em;
+        }
+
+        .nav-links a {
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #a18cd1;
+        }
+
+        /* ========== হিরো সেকশন ========== */
+        .hero {
+            padding: 140px 20px 70px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6ee7b7, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.25em;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== কন্টেন্ট সেকশন ========== */
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        /* মিশন কার্ড */
+        .mission-card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            transition: border-color 0.3s;
+        }
+
+        .mission-card:hover {
+            border-color: #6ee7b7;
+        }
+
+        .mission-card h2 {
+            font-size: 2em;
+            color: #6ee7b7;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mission-card p {
+            font-size: 1.15em;
+            color: #c0c0c0;
+            line-height: 1.9;
+        }
+
+        /* প্রোফাইল কার্ড */
+        .profile-card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            transition: border-color 0.3s;
+        }
+
+        .profile-card:hover {
+            border-color: #3b82f6;
+        }
+
+        .profile-card h2 {
+            font-size: 2em;
+            color: #60a5fa;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* টাইমলাইন */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #1f1f1f;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 2px solid #000;
+        }
+
+        .timeline-item .label {
+            font-size: 0.85em;
+            color: #60a5fa;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .institution {
+            font-size: 1.25em;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .timeline-item .detail {
+            font-size: 1em;
+            color: #b0b0b0;
+            margin-top: 5px;
+        }
+
+        .highlight-score {
+            color: #6ee7b7;
+            font-weight: 600;
+        }
+
+        /* কন্ট্যাক্ট কার্ড */
+        .contact-card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: #a78bfa;
+        }
+
+        .contact-card h2 {
+            font-size: 2em;
+            color: #a78bfa;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-card .email {
+            font-size: 1.3em;
+            color: #ffffff;
+            background: #111;
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 1px solid #333;
+            margin: 15px 0;
+            transition: border-color 0.3s;
+            word-break: break-all;
+        }
+
+        .contact-card .email:hover {
+            border-color: #a78bfa;
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #a78bfa, #6c8cbf);
+            color: #000;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 14px 35px;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .subscribe-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.03);
+        }
+
+        /* ========== ফুটার ========== */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.95em;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #6ee7b7;
+            font-size: 1.05em;
+            transition: color 0.2s;
+        }
+
+        .back-home:hover {
+            color: #34d399;
+        }
+
+        /* ========== রেসপনসিভ ========== */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .mission-card,
+            .profile-card,
+            .contact-card {
+                padding: 25px 20px;
+            }
+            .timeline {
+                padding-left: 20px;
+            }
+            .timeline-item::before {
+                left: -26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- নেভিগেশন -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">এক পরমাণু</a>
+        <div class="nav-links">
+            <a href="math.html">গণিত</a>
+            <a href="physics.html">পদার্থবিজ্ঞান</a>
+            <a href="about.html" style="color:#6ee7b7;">আমাদের কথা</a>
+        </div>
+    </nav>
+
+    <!-- হিরো -->
+    <section class="hero">
+        <a href="index.html" class="back-home">← হোমে ফিরে যাও</a>
+        <h1>আমাদের কথা</h1>
+        <p>যে মানুষটার স্বপ্ন থেকে জন্ম নিয়েছে “এক পরমাণু”</p>
+    </section>
+
+    <!-- মিশন -->
+    <div class="content-section">
+        <div class="mission-card">
+            <h2>🎯 আমাদের লক্ষ্য</h2>
+            <p>
+                পদার্থবিজ্ঞান ও গণিতের জটিল জিনিসপত্রকে <strong style="color:#fff;">সহজভাবে তুলে ধরা</strong>—এটাই আমাদের একমাত্র লক্ষ্য।
+                <strong style="color:#6ee7b7;">One Paramanu</strong> শুধুমাত্র মৌলিক বিষয়গুলোর ওপর গুরুত্ব দেয়।
+                ভিডিওগুলি মূলত <strong style="color:#fff;">Class 9 থেকে Class 12</strong> পর্যন্ত বাঙালি ছাত্র-ছাত্রীদের জন্য তৈরি।
+                প্রতিটি টপিক এমনভাবে ব্যাখ্যা করা হয়, যাতে বেসিক ক্লিয়ার হয় আর জটিল অঙ্কও পানির মতো সহজ লাগে।
+            </p>
+        </div>
+
+        <!-- প্রোফাইল -->
+        <div class="profile-card">
+            <h2>👤 আমার সম্পর্কে</h2>
+            <div class="timeline">
+                <!-- নাম -->
+                <div class="timeline-item">
+                    <div class="label">নাম</div>
+                    <div class="institution">Subhajit Das</div>
+                </div>
+                <!-- দশম শ্রেণি -->
+                <div class="timeline-item">
+                    <div class="label">দশম শ্রেণি (WBBSE)</div>
+                    <div class="detail">
+                        ভৌতবিজ্ঞান: <span class="highlight-score">90%</span> &nbsp;|&nbsp;
+                        গণিত: <span class="highlight-score">93%</span>
+                    </div>
+                </div>
+                <!-- দ্বাদশ শ্রেণি -->
+                <div class="timeline-item">
+                    <div class="label">দ্বাদশ শ্রেণি (WBCHSE)</div>
+                    <div class="detail">
+                        পদার্থবিজ্ঞান: <span class="highlight-score">91%</span> &nbsp;|&nbsp;
+                        গণিত: <span class="highlight-score">87%</span>
+                    </div>
+                </div>
+                <!-- স্নাতক -->
+                <div class="timeline-item">
+                    <div class="label">বি.এসসি. (পদার্থবিজ্ঞান অনার্স)</div>
+                    <div class="institution">RKMVC College</div>
+                    <div class="detail">রহড়া, পশ্চিমবঙ্গ, ভারত</div>
+                </div>
+                <!-- স্নাতকোত্তর -->
+                <div class="timeline-item">
+                    <div class="label">এম.এসসি. (পদার্থবিজ্ঞান)</div>
+                    <div class="institution">IIT Guwahati</div>
+                    <div class="detail">গুয়াহাটি, আসাম, ভারত</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- যোগাযোগ ও সাবস্ক্রাইব -->
+        <div class="contact-card">
+            <h2>📬 যোগাযোগ</h2>
+            <p style="margin-bottom:15px; color:#b0b0b0;">কোনো প্রশ্ন, মতামত বা কোলাবোরেশন করতে চাইলে নির্দ্বিধায় ইমেইল করো।</p>
+            <div class="email">banglamaths031025@gmail.com</div>
+            <br>
+            <p style="color:#c0c0c0; margin-bottom:10px;">✨ “One Paramanu” কে আরও জনপ্রিয় করে তুলতে সাবস্ক্রাইব করো।</p>
+            <a href="https://www.youtube.com/@OneParamanu" target="_blank" class="subscribe-btn">▶ Subscribe</a>
+        </div>
+    </div>
+
+    <!-- ফুটার -->
+    <footer class="footer">
+        <p>© ২০২৫ এক পরমাণু — শিক্ষার্থীদের জন্য উন্মুক্ত শিক্ষা সহায়তা।</p>
+    </footer>
+
+</body>
+</html>
