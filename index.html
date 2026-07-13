@@ -43,16 +43,46 @@
             z-index: 1000;
         }
 
-        /* লোগো ইমেজ স্টাইল */
+        /* লোগো কন্টেইনার */
         .navbar .logo {
-            display: flex;
+            position: relative;
+            display: inline-flex;
             align-items: center;
+            overflow: hidden;          /* টেক্সট ক্লিপ করার জন্য */
+            height: 36px;              /* ইমেজের উচ্চতা */
+            /* কন্টেইনারটি কেবল ইমেজের প্রশ্বই হবে */
         }
 
         .navbar .logo img {
-            height: 36px;          /* আপনার লোগোর আকার অনুযায়ী পরিবর্তন করুন */
+            height: 36px;
             width: auto;
             display: block;
+            position: relative;
+            z-index: 2;               /* ইমেজ সামনে থাকবে */
+        }
+
+        /* অ্যানিমেটেড "1P" টেক্সট */
+        .logo-text-anim {
+            position: absolute;
+            top: 50%;
+            left: 100%;                /* ইমেজের ডান প্রান্ত থেকে শুরু */
+            transform: translateY(-50%);
+            z-index: 1;                /* ইমেজের পেছনে */
+            white-space: nowrap;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #c084fc;           /* গ্রেডিয়েন্টের বদলে সলিড – ইচ্ছা করলে পরিবর্তনযোগ্য */
+            animation: slideBehind 3s linear infinite;
+        }
+
+        /* স্লাইড অ্যানিমেশন */
+        @keyframes slideBehind {
+            0% {
+                left: 100%;
+            }
+            100% {
+                left: -100%;
+            }
         }
 
         /* ডান পাশের কন্টেইনার */
@@ -232,24 +262,17 @@
 
     <!-- নেভিগেশন -->
     <nav class="navbar">
-        <!-- লোগো ইমেজ (1P) – src পরিবর্তন করে আপনার আপলোড করা ইমেজ দিন -->
+        <!-- লোগো ইমেজ + অ্যানিমেটেড "1P" টেক্সট -->
         <a href="index.html" class="logo">
-            <!-- নিচের src="logo.png" এর জায়গায় আপনার ইমেজ ফাইলের নাম বসান -->
-            <img src="logo.webp" alt="1P Logo">
+            <img src="logo.webp" alt="Logo">
+            <span class="logo-text-anim">1P</span>
         </a>
 
         <!-- ডান পাশের অংশ: Home, About, হ্যামবার্গার -->
         <div class="nav-right">
-            <!-- হোম লিংক -->
             <a href="index.html" class="nav-link">Home</a>
-
-            <!-- অ্যাবাউট (আমাদের কথা) -->
             <a href="about.html" class="nav-link">About</a>
-
-            <!-- ট্রিপল বার (হ্যামবার্গার) -->
             <div class="hamburger" onclick="toggleDropdown()">☰</div>
-
-            <!-- ড্রপডাউন মেনু -->
             <div class="class-dropdown" id="classDropdown">
                 <a href="class9.html">Class 9</a>
                 <a href="class10.html">Class 10</a>
@@ -269,14 +292,11 @@
     <section class="lessons" id="lessons">
         <h2 class="section-title">যা যা শিখতে পারবে</h2>
         <div class="card-grid">
-            <!-- গণিত কার্ড -->
             <a href="math.html" class="card">
                 <span class="icon">📐</span>
                 <h3>গণিত</h3>
                 <p>বীজগণিত, ত্রিকোণমিতি, ক্যালকুলাস—প্রতিটি অধ্যায়ের গোছানো নোট ও সূত্র।</p>
             </a>
-
-            <!-- পদার্থবিজ্ঞান কার্ড -->
             <a href="physics.html" class="card">
                 <span class="icon">⚛️</span>
                 <h3>পদার্থবিজ্ঞান</h3>
@@ -285,18 +305,15 @@
         </div>
     </section>
 
-    <!-- ফুটার -->
     <footer class="footer">
         <p>© ২০২৫ 1P — শিক্ষার্থীদের জন্য উন্মুক্ত শিক্ষা সহায়তা।</p>
     </footer>
 
-    <!-- জাভাস্ক্রিপ্ট: ড্রপডাউন টগল এবং বাইরে ক্লিক করলে বন্ধ -->
     <script>
         function toggleDropdown() {
             document.getElementById("classDropdown").classList.toggle("active");
         }
 
-        // মেনুর বাইরে ক্লিক করলে ড্রপডাউন বন্ধ হবে
         document.addEventListener('click', function(event) {
             const dropdown = document.getElementById("classDropdown");
             const hamburger = document.querySelector(".hamburger");
