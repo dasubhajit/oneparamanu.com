@@ -18,7 +18,7 @@
 
         body {
             font-family: 'Noto Sans Bengali', sans-serif;
-            background-color: #000000;  /* একদম কালো */
+            background-color: #000000;
             color: #d4d4d4;
             line-height: 1.7;
             overflow-x: hidden;
@@ -42,6 +42,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
+            position: relative; /* hamburger menu-এর জন্য */
         }
 
         .navbar .logo {
@@ -52,14 +53,46 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* হ্যামবার্গার আইকন */
+        .hamburger {
+            font-size: 1.8em;
+            cursor: pointer;
+            color: #d4d4d4;
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        .hamburger:hover {
+            color: #a18cd1;
+        }
+
+        /* নেভিগেশন লিঙ্ক (hidden by default) */
         .nav-links {
+            display: none;               /* টগল করার আগে লুকানো */
+            flex-direction: column;
+            position: absolute;
+            right: 40px;
+            top: 70px;                  /* নেভবারের নিচে */
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 10px;
+            padding: 15px 20px;
+            gap: 15px;
+            z-index: 1001;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+        }
+
+        /* টগল করলে দেখাবে */
+        .nav-links.active {
             display: flex;
-            gap: 30px;
-            font-size: 1.05em;
         }
 
         .nav-links a {
+            font-size: 1.1em;
+            color: #d4d4d4;
+            padding: 5px 0;
             transition: color 0.2s;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -157,8 +190,7 @@
                 padding: 15px 20px;
             }
             .nav-links {
-                gap: 15px;
-                font-size: 0.9em;
+                right: 20px;
             }
             .hero h1 {
                 font-size: 2.5em;
@@ -174,7 +206,10 @@
     <!-- নেভিগেশন -->
     <nav class="navbar">
         <a href="index.html" class="logo">এক পরমাণু</a>
-        <div class="nav-links">
+        <!-- হ্যামবার্গার আইকন (ট্রিপল বার) -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <!-- নেভিগেশন লিঙ্ক (hidden by default) -->
+        <div class="nav-links" id="navLinks">
             <a href="math.html">গণিত</a>
             <a href="physics.html">পদার্থবিজ্ঞান</a>
             <a href="#about">আমাদের কথা</a>
@@ -205,7 +240,7 @@
                 <p>বল, শক্তি, আলো, তড়িৎ—কঠিন টপিকগুলো ভেঙে সহজ ব্যাখ্যা।</p>
             </a>
 
-            <!-- বাড়তি কার্ড (ইচ্ছা করলে) -->
+            <!-- বাড়তি কার্ড -->
             <a href="#" class="card">
                 <span class="icon">🧪</span>
                 <h3>পরীক্ষা প্রস্তুতি</h3>
@@ -218,6 +253,24 @@
     <footer class="footer">
         <p>© ২০২৫ এক পরমাণু — শিক্ষার্থীদের জন্য উন্মুক্ত শিক্ষা সহায়তা।</p>
     </footer>
+
+    <!-- হ্যামবার্গার মেনুর জন্য জাভাস্ক্রিপ্ট -->
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("navLinks");
+            nav.classList.toggle("active");
+        }
+
+        // মেনুর বাইরে ক্লিক করলে মেনু বন্ধ করে দেওয়া (ইউজার এক্সপেরিয়েন্স)
+        document.addEventListener('click', function(event) {
+            var nav = document.getElementById("navLinks");
+            var hamburger = document.querySelector(".hamburger");
+            // যদি ক্লিক নেভ লিঙ্ক বা হ্যামবার্গারের ভেতরে না হয়, তাহলে মেনু বন্ধ করো
+            if (!nav.contains(event.target) && event.target !== hamburger && !hamburger.contains(event.target)) {
+                nav.classList.remove("active");
+            }
+        });
+    </script>
 
 </body>
 </html>
