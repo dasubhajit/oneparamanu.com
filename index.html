@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ========== বেসিক সেটআপ ========== */
         * {
             margin: 0;
             padding: 0;
@@ -42,7 +41,6 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            position: relative; /* hamburger menu-এর জন্য */
         }
 
         .navbar .logo {
@@ -51,6 +49,26 @@
             background: linear-gradient(135deg, #a18cd1, #6c8cbf);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        /* ডান পাশের কন্টেইনার */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* "আমাদের কথা" লিংক */
+        .about-link {
+            font-size: 1.05em;
+            color: #d4d4d4;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .about-link:hover {
+            color: #a18cd1;
         }
 
         /* হ্যামবার্গার আইকন */
@@ -60,43 +78,45 @@
             color: #d4d4d4;
             user-select: none;
             transition: color 0.2s;
+            line-height: 1;
         }
 
         .hamburger:hover {
             color: #a18cd1;
         }
 
-        /* নেভিগেশন লিঙ্ক (hidden by default) */
-        .nav-links {
-            display: none;               /* টগল করার আগে লুকানো */
-            flex-direction: column;
+        /* ড্রপডাউন মেনু (ক্লাস লিস্ট) */
+        .class-dropdown {
+            display: none;
             position: absolute;
             right: 40px;
-            top: 70px;                  /* নেভবারের নিচে */
+            top: 70px;
             background: #0a0a0a;
             border: 1px solid #1f1f1f;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 15px 20px;
-            gap: 15px;
             z-index: 1001;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            flex-direction: column;
+            gap: 12px;
+            min-width: 150px;
         }
 
-        /* টগল করলে দেখাবে */
-        .nav-links.active {
+        .class-dropdown.active {
             display: flex;
         }
 
-        .nav-links a {
+        .class-dropdown a {
             font-size: 1.1em;
             color: #d4d4d4;
-            padding: 5px 0;
-            transition: color 0.2s;
-            white-space: nowrap;
+            padding: 8px 10px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: #a18cd1;
+        .class-dropdown a:hover {
+            background: #1a1a1a;
+            color: #a78bfa;
         }
 
         /* ========== হিরো সেকশন ========== */
@@ -150,6 +170,7 @@
             padding: 35px 25px;
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            display: block;
         }
 
         .card:hover {
@@ -189,7 +210,10 @@
             .navbar {
                 padding: 15px 20px;
             }
-            .nav-links {
+            .nav-right {
+                gap: 15px;
+            }
+            .class-dropdown {
                 right: 20px;
             }
             .hero h1 {
@@ -205,14 +229,24 @@
 
     <!-- নেভিগেশন -->
     <nav class="navbar">
+        <!-- Home লিংক (লোগো) -->
         <a href="index.html" class="logo">এক পরমাণু</a>
-        <!-- হ্যামবার্গার আইকন (ট্রিপল বার) -->
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <!-- নেভিগেশন লিঙ্ক (hidden by default) -->
-        <div class="nav-links" id="navLinks">
-            <a href="math.html">গণিত</a>
-            <a href="physics.html">পদার্থবিজ্ঞান</a>
-            <a href="#about">আমাদের কথা</a>
+
+        <!-- ডান পাশের অংশ: About + হ্যামবার্গার -->
+        <div class="nav-right">
+            <!-- About (আমাদের কথা) -->
+            <a href="#about" class="about-link">আমাদের কথা</a>
+
+            <!-- ট্রিপল বার (হ্যামবার্গার) -->
+            <div class="hamburger" onclick="toggleDropdown()">☰</div>
+
+            <!-- ড্রপডাউন মেনু -->
+            <div class="class-dropdown" id="classDropdown">
+                <a href="class9.html">নবম শ্রেণি</a>
+                <a href="class10.html">দশম শ্রেণি</a>
+                <a href="class11.html">একাদশ শ্রেণি</a>
+                <a href="class12.html">দ্বাদশ শ্রেণি</a>
+            </div>
         </div>
     </nav>
 
@@ -254,20 +288,18 @@
         <p>© ২০২৫ এক পরমাণু — শিক্ষার্থীদের জন্য উন্মুক্ত শিক্ষা সহায়তা।</p>
     </footer>
 
-    <!-- হ্যামবার্গার মেনুর জন্য জাভাস্ক্রিপ্ট -->
+    <!-- জাভাস্ক্রিপ্ট: ড্রপডাউন টগল এবং বাইরে ক্লিক করলে বন্ধ -->
     <script>
-        function toggleMenu() {
-            var nav = document.getElementById("navLinks");
-            nav.classList.toggle("active");
+        function toggleDropdown() {
+            document.getElementById("classDropdown").classList.toggle("active");
         }
 
-        // মেনুর বাইরে ক্লিক করলে মেনু বন্ধ করে দেওয়া (ইউজার এক্সপেরিয়েন্স)
+        // মেনুর বাইরে ক্লিক করলে ড্রপডাউন বন্ধ হবে
         document.addEventListener('click', function(event) {
-            var nav = document.getElementById("navLinks");
-            var hamburger = document.querySelector(".hamburger");
-            // যদি ক্লিক নেভ লিঙ্ক বা হ্যামবার্গারের ভেতরে না হয়, তাহলে মেনু বন্ধ করো
-            if (!nav.contains(event.target) && event.target !== hamburger && !hamburger.contains(event.target)) {
-                nav.classList.remove("active");
+            const dropdown = document.getElementById("classDropdown");
+            const hamburger = document.querySelector(".hamburger");
+            if (!dropdown.contains(event.target) && event.target !== hamburger && !hamburger.contains(event.target)) {
+                dropdown.classList.remove("active");
             }
         });
     </script>
