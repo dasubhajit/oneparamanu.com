@@ -45,44 +45,29 @@
 
         /* লোগো কন্টেইনার */
         .navbar .logo {
-            position: relative;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            overflow: hidden;          /* টেক্সট ক্লিপ করার জন্য */
-            height: 36px;              /* ইমেজের উচ্চতা */
-            /* কন্টেইনারটি কেবল ইমেজের প্রশ্বই হবে */
+            gap: 8px;                 /* লোগো ও টেক্সটের মাঝে ফাঁকা */
         }
 
         .navbar .logo img {
             height: 36px;
             width: auto;
             display: block;
-            position: relative;
-            z-index: 2;               /* ইমেজ সামনে থাকবে */
         }
 
-        /* অ্যানিমেটেড "1P" টেক্সট */
-        .logo-text-anim {
-            position: absolute;
-            top: 50%;
-            left: 100%;                /* ইমেজের ডান প্রান্ত থেকে শুরু */
-            transform: translateY(-50%);
-            z-index: 1;                /* ইমেজের পেছনে */
-            white-space: nowrap;
-            font-size: 1.3em;
+        /* ব্লিংকিং "1P" টেক্সট */
+        .logo-text {
+            font-size: 1.5em;
             font-weight: 700;
-            color: #c084fc;           /* গ্রেডিয়েন্টের বদলে সলিড – ইচ্ছা করলে পরিবর্তনযোগ্য */
-            animation: slideBehind 3s linear infinite;
+            color: #ffffff;
+            /* ব্লিংকিং অ্যানিমেশন */
+            animation: blink 1.5s infinite;
         }
 
-        /* স্লাইড অ্যানিমেশন */
-        @keyframes slideBehind {
-            0% {
-                left: 100%;
-            }
-            100% {
-                left: -100%;
-            }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
         }
 
         /* ডান পাশের কন্টেইনার */
@@ -92,7 +77,6 @@
             gap: 25px;
         }
 
-        /* হোম ও অ্যাবাউট লিংক */
         .nav-link {
             font-size: 1.05em;
             color: #d4d4d4;
@@ -104,7 +88,6 @@
             color: #a18cd1;
         }
 
-        /* হ্যামবার্গার আইকন */
         .hamburger {
             font-size: 1.8em;
             cursor: pointer;
@@ -118,7 +101,7 @@
             color: #a18cd1;
         }
 
-        /* ড্রপডাউন মেনু (ক্লাস লিস্ট) */
+        /* ড্রপডাউন মেনু */
         .class-dropdown {
             display: none;
             position: absolute;
@@ -255,6 +238,9 @@
             .lessons {
                 padding: 20px 20px 60px;
             }
+            .logo-text {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
@@ -262,10 +248,10 @@
 
     <!-- নেভিগেশন -->
     <nav class="navbar">
-        <!-- লোগো ইমেজ + অ্যানিমেটেড "1P" টেক্সট -->
+        <!-- লোগো + ব্লিংকিং টেক্সট -->
         <a href="index.html" class="logo">
-            <img src="logo.webp" alt="Logo">
-            <span class="logo-text-anim">1P</span>
+            <img src="logo.webp" alt="1P Logo">
+            <span class="logo-text">1P</span>
         </a>
 
         <!-- ডান পাশের অংশ: Home, About, হ্যামবার্গার -->
@@ -305,10 +291,12 @@
         </div>
     </section>
 
+    <!-- ফুটার -->
     <footer class="footer">
         <p>© ২০২৫ 1P — শিক্ষার্থীদের জন্য উন্মুক্ত শিক্ষা সহায়তা।</p>
     </footer>
 
+    <!-- জাভাস্ক্রিপ্ট -->
     <script>
         function toggleDropdown() {
             document.getElementById("classDropdown").classList.toggle("active");
