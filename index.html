@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Paramanu — গণিত ও পদার্থবিজ্ঞান</title>
+    <title>1P — গণিত ও পদার্থবিজ্ঞান</title>
     <!-- Google Fonts: Noto Sans Bengali -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,13 +43,16 @@
             z-index: 1000;
         }
 
+        /* লোগো ইমেজ স্টাইল */
         .navbar .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            background: linear-gradient(135deg, #a18cd1, #6c8cbf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 36px;          /* আপনার লোগোর আকার অনুযায়ী পরিবর্তন করুন */
+            width: auto;
+            display: block;
         }
 
         /* ডান পাশের কন্টেইনার */
@@ -229,8 +232,11 @@
 
     <!-- নেভিগেশন -->
     <nav class="navbar">
-        <!-- লোগো এখন One Paramanu, হোম লিংক হিসেবে কাজ করে -->
-        <a href="index.html" class="logo">One Paramanu</a>
+        <!-- লোগো ইমেজ (1P) – src পরিবর্তন করে আপনার আপলোড করা ইমেজ দিন -->
+        <a href="index.html" class="logo">
+            <!-- নিচের src="logo.png" এর জায়গায় আপনার ইমেজ ফাইলের নাম বসান -->
+            <img src="logo.png" alt="1P Logo">
+        </a>
 
         <!-- ডান পাশের অংশ: Home, About, হ্যামবার্গার -->
         <div class="nav-right">
@@ -278,6 +284,11 @@
             </a>
         </div>
     </section>
+
+    <!-- ফুটার -->
+    <footer class="footer">
+        <p>© ২০২৫ 1P — শিক্ষার্থীদের জন্য উন্মুক্ত শিক্ষা সহায়তা।</p>
+    </footer>
 
     <!-- জাভাস্ক্রিপ্ট: ড্রপডাউন টগল এবং বাইরে ক্লিক করলে বন্ধ -->
     <script>
