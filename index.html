@@ -47,7 +47,7 @@
         .navbar .logo {
             display: flex;
             align-items: center;
-            gap: 8px;                 /* লোগো ও টেক্সটের মাঝে ফাঁকা */
+            gap: 8px;
         }
 
         .navbar .logo img {
@@ -56,12 +56,12 @@
             display: block;
         }
 
-        /* ব্লিংকিং "1P" টেক্সট */
+        /* ব্লিংকিং "1P" টেক্সট – এখন ইটালিক */
         .logo-text {
             font-size: 1.5em;
             font-weight: 700;
+            font-style: italic;      /* ← ইটালিক স্টাইল */
             color: #ffffff;
-            /* ব্লিংকিং অ্যানিমেশন */
             animation: blink 1.5s infinite;
         }
 
@@ -248,7 +248,7 @@
 
     <!-- নেভিগেশন -->
     <nav class="navbar">
-        <!-- লোগো + ব্লিংকিং টেক্সট -->
+        <!-- লোগো + ইটালিক ব্লিংকিং টেক্সট -->
         <a href="index.html" class="logo">
             <img src="logo.webp" alt="1P Logo">
             <span class="logo-text">1P</span>
@@ -278,15 +278,15 @@
     <section class="lessons" id="lessons">
         <h2 class="section-title">যা যা শিখতে পারবে</h2>
         <div class="card-grid">
-            <a href="math.html" class="card">
-                <span class="icon">📐</span>
-                <h3>গণিত</h3>
-                <p>বীজগণিত, ত্রিকোণমিতি, ক্যালকুলাস—প্রতিটি অধ্যায়ের গোছানো নোট ও সূত্র।</p>
-            </a>
             <a href="physics.html" class="card">
                 <span class="icon">⚛️</span>
                 <h3>পদার্থবিজ্ঞান</h3>
                 <p>বল, শক্তি, আলো, তড়িৎ—কঠিন টপিকগুলো ভেঙে সহজ ব্যাখ্যা।</p>
+            </a>
+            <a href="math.html" class="card">
+                <span class="icon">📐</span>
+                <h3>গণিত</h3>
+                <p>বীজগণিত, ত্রিকোণমিতি, ক্যালকুলাস—প্রতিটি অধ্যায়ের গোছানো নোট ও সূত্র।</p>
             </a>
         </div>
     </section>
