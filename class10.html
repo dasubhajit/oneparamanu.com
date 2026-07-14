@@ -34,11 +34,11 @@
     </div>
 
     <div class="pill-row">
-      <span class="pill active physics">পদার্থবিজ্ঞান</span>
-      <span class="pill">গণিত</span>
+      <span class="pill active physics" id="pill-physics" onclick="showSubject('physics')">পদার্থবিজ্ঞান</span>
+      <span class="pill" id="pill-math" onclick="showSubject('math')">গণিত</span>
     </div>
 
-    <div class="topic-list">
+    <div class="topic-list" id="topic-list-physics">
       <div class="topic-row">
         <span class="topic-num">01</span>
         <div>
@@ -72,8 +72,205 @@
         <span class="status soon">শীঘ্রই আসছে</span>
       </div>
     </div>
+
+    <div class="topic-list" id="topic-list-math" style="display:none;">
+      <div class="topic-row">
+        <span class="topic-num">01</span>
+        <div>
+          <h4>একচলবিশিষ্ট দ্বিঘাত সমীকরণ</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">02</span>
+        <div>
+          <h4>সরল সুদকষা</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">03</span>
+        <div>
+          <h4>বৃত্ত সম্পর্কিত উপপাদ্য</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">04</span>
+        <div>
+          <h4>আয়তঘন</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">05</span>
+        <div>
+          <h4>অনুপাত ও সমানুপাত</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">06</span>
+        <div>
+          <h4>চক্রবৃদ্ধি সুদ (৩ বছর পর্যন্ত) ও সমহারে বৃদ্ধি বা হ্রাস</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">07</span>
+        <div>
+          <h4>বৃত্তস্থ কোণ সম্পর্কিত উপপাদ্য</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">08</span>
+        <div>
+          <h4>লম্ব বৃত্তাকার চোঙ</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">09</span>
+        <div>
+          <h4>দ্বিঘাত করণী</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">10</span>
+        <div>
+          <h4>বৃত্তস্থ চতুর্ভুজ সংক্রান্ত উপপাদ্য</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">11</span>
+        <div>
+          <h4>সম্পাদ্য: ত্রিভুজের পরিবৃত্ত ও অন্তর্বৃত্ত অঙ্কন</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">12</span>
+        <div>
+          <h4>গোলক</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">13</span>
+        <div>
+          <h4>ভেদ</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">14</span>
+        <div>
+          <h4>অংশীদারি কারবার</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">15</span>
+        <div>
+          <h4>বৃত্তের স্পর্শক সংক্রান্ত উপপাদ্য</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">16</span>
+        <div>
+          <h4>লম্ব বৃত্তাকার শঙ্কু</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">17</span>
+        <div>
+          <h4>সম্পাদ্য: বৃত্তের স্পর্শক অঙ্কন</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">18</span>
+        <div>
+          <h4>সদৃশতা</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">19</span>
+        <div>
+          <h4>বিভিন্ন ঘনবস্তু সংক্রান্ত বাস্তব সমস্যা</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">20</span>
+        <div>
+          <h4>ত্রিকোণমিতি: কোণ পরিমাপের ধারণা</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">21</span>
+        <div>
+          <h4>সম্পাদ্য: মধ্যসমানুপাতী নির্ণয়</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">22</span>
+        <div>
+          <h4>পিথাগোরাসের উপপাদ্য</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">23</span>
+        <div>
+          <h4>ত্রিকোণমিতিক অনুপাত এবং ত্রিকোণমিতিক অভেদাবলি</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">24</span>
+        <div>
+          <h4>পূরক কোণের ত্রিকোণমিতিক অনুপাত</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">25</span>
+        <div>
+          <h4>ত্রিকোণমিতিক অনুপাতের প্রয়োগ: উচ্চতা ও দূরত্ব</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">26</span>
+        <div>
+          <h4>রাশিবিজ্ঞান: গড়, মধ্যমা, ওজাইভ, সংখ্যাগুরুমান</h4>
+        </div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<script>
+function showSubject(subject){
+  document.getElementById('topic-list-physics').style.display = subject === 'physics' ? '' : 'none';
+  document.getElementById('topic-list-math').style.display = subject === 'math' ? '' : 'none';
+  document.getElementById('pill-physics').classList.toggle('active', subject === 'physics');
+  document.getElementById('pill-physics').classList.toggle('physics', subject === 'physics');
+  document.getElementById('pill-math').classList.toggle('active', subject === 'math');
+  document.getElementById('pill-math').classList.toggle('math', subject === 'math');
+}
+</script>
 
 <footer>
   <div class="footer-wrap">
