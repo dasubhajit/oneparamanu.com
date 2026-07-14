@@ -192,19 +192,19 @@ header{
 }
 
 .atom{
-  width:min(340px, 80vw);
-  height:min(340px, 80vw);
+  width:min(200px, 55vw);
+  height:min(200px, 55vw);
   position:relative;
 }
 
 .nucleus{
   position:absolute;
   top:50%; left:50%;
-  width:26px; height:26px;
-  margin:-13px 0 0 -13px;
+  width:16px; height:16px;
+  margin:-8px 0 0 -8px;
   border-radius:50%;
   background:radial-gradient(circle at 35% 30%, #fff, var(--math) 55%, #b45309 100%);
-  box-shadow:0 0 30px rgba(251,191,36,0.55);
+  box-shadow:0 0 18px rgba(251,191,36,0.55);
 }
 
 .orbit{
@@ -215,18 +215,18 @@ header{
   transform-origin:center;
 }
 
-.orbit-1{ width:220px; height:220px; margin:-110px 0 0 -110px; transform:rotate(0deg); animation:spin 9s linear infinite; }
-.orbit-2{ width:280px; height:280px; margin:-140px 0 0 -140px; transform:rotate(60deg); animation:spin 13s linear infinite reverse; }
-.orbit-3{ width:340px; height:340px; margin:-170px 0 0 -170px; transform:rotate(120deg); animation:spin 17s linear infinite; }
+.orbit-1{ width:130px; height:130px; margin:-65px 0 0 -65px; transform:rotate(0deg); animation:spin 9s linear infinite; }
+.orbit-2{ width:165px; height:165px; margin:-82.5px 0 0 -82.5px; transform:rotate(60deg); animation:spin 13s linear infinite reverse; }
+.orbit-3{ width:200px; height:200px; margin:-100px 0 0 -100px; transform:rotate(120deg); animation:spin 17s linear infinite; }
 
 .electron{
   position:absolute;
-  top:-5px; left:50%;
-  width:10px; height:10px;
-  margin-left:-5px;
+  top:-4px; left:50%;
+  width:7px; height:7px;
+  margin-left:-3.5px;
   border-radius:50%;
   background:var(--physics);
-  box-shadow:0 0 10px var(--physics);
+  box-shadow:0 0 8px var(--physics);
 }
 
 @keyframes spin{ to{ transform:rotate(360deg); } }
@@ -363,6 +363,67 @@ section{ padding:64px 24px; }
 }
 
 .about-block p{ color:var(--text-muted); }
+
+/* ---------------- Social links ---------------- */
+.social-row{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.social-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:var(--surface);
+  border:1px solid var(--border);
+  color:var(--text-muted);
+  transition:transform .2s, border-color .2s, background .2s, color .2s;
+}
+
+.social-btn svg{ width:20px; height:20px; }
+
+.social-btn:hover{
+  transform:translateY(-3px);
+  border-color:var(--physics);
+  background:var(--physics-soft);
+  color:var(--physics);
+}
+
+.social-section{
+  padding-top:0;
+}
+
+.social-section .section-head{ margin-bottom:22px; }
+
+.edu-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.edu-list li{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px 18px;
+  color:var(--text-muted);
+  font-size:0.98rem;
+}
+
+.edu-list li strong{ color:var(--text); }
+
+.contact-line{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:600;
+  color:var(--physics);
+}
 
 /* ---------------- Footer ---------------- */
 footer{
