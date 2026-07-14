@@ -377,20 +377,17 @@ section{ padding:64px 24px; }
   justify-content:center;
   width:46px;
   height:46px;
-  border-radius:50%;
-  background:var(--surface);
-  border:1px solid var(--border);
-  color:var(--text-muted);
-  transition:transform .2s, border-color .2s, background .2s, color .2s;
+  border-radius:14px;
+  background:none;
+  border:none;
+  overflow:hidden;
+  transition:transform .2s;
 }
 
-.social-btn svg{ width:20px; height:20px; }
+.social-btn img{ width:100%; height:100%; object-fit:contain; display:block; }
 
 .social-btn:hover{
-  transform:translateY(-3px);
-  border-color:var(--physics);
-  background:var(--physics-soft);
-  color:var(--physics);
+  transform:translateY(-3px) scale(1.06);
 }
 
 .social-section{
@@ -448,16 +445,7 @@ section{ padding:64px 24px; }
   flex-shrink:0;
 }
 
-/* Brand-colored social buttons - proper color always visible */
-.social-btn.youtube{ color:#FF0000; }
-.social-btn.facebook{ color:#1877F2; }
-.social-btn.instagram{ color:#E1306C; }
-.social-btn.whatsapp{ color:#25D366; }
-
-.social-btn.youtube:hover{ border-color:#FF0000; background:rgba(255,0,0,0.14); transform:translateY(-3px); }
-.social-btn.facebook:hover{ border-color:#1877F2; background:rgba(24,119,242,0.14); transform:translateY(-3px); }
-.social-btn.instagram:hover{ border-color:#E1306C; background:rgba(225,48,108,0.14); transform:translateY(-3px); }
-.social-btn.whatsapp:hover{ border-color:#25D366; background:rgba(37,211,102,0.14); transform:translateY(-3px); }
+/* Social icons use full-color logo images, no per-brand overrides needed */
 
 /* ---------------- Footer ---------------- */
 footer{
