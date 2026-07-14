@@ -34,46 +34,168 @@
     </div>
 
     <div class="pill-row">
-      <span class="pill active physics">পদার্থবিজ্ঞান</span>
-      <span class="pill">গণিত</span>
+      <span class="pill active physics" id="pill-physics" onclick="showSubject('physics')">পদার্থবিজ্ঞান</span>
+      <span class="pill" id="pill-math" onclick="showSubject('math')">গণিত</span>
     </div>
 
-    <div class="topic-list">
+    <div class="topic-list" id="topic-list-physics">
       <div class="topic-row">
         <span class="topic-num">01</span>
-        <div>
-          <h4>তড়িৎচুম্বকত্ব (Electromagnetism)</h4>
-          <span>তড়িৎ-চৌম্বক আবেশন, ম্যাক্সওয়েলের সূত্র</span>
-        </div>
-        <span class="status ready">প্রস্তুত</span>
+        <div><h4>তড়িৎ আধান এবং ক্ষেত্র (Electric Charges and Fields)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
       </div>
       <div class="topic-row">
         <span class="topic-num">02</span>
-        <div>
-          <h4>আধুনিক পদার্থবিজ্ঞান (Modern Physics)</h4>
-          <span>ফোটোইলেকট্রিক এফেক্ট, পরমাণুর গঠন</span>
-        </div>
+        <div><h4>স্থির তড়িৎ বিভব এবং ধারকত্ব (Electrostatic Potential and Capacitance)</h4></div>
         <span class="status soon">শীঘ্রই আসছে</span>
       </div>
       <div class="topic-row">
         <span class="topic-num">03</span>
-        <div>
-          <h4>ইন্টিগ্রাল ক্যালকুলাস (Integral Calculus)</h4>
-          <span>অন্তরকলনের বিপরীত প্রক্রিয়া, প্রয়োগ</span>
-        </div>
+        <div><h4>প্রবাহী তড়িৎ (Current Electricity)</h4></div>
         <span class="status soon">শীঘ্রই আসছে</span>
       </div>
       <div class="topic-row">
         <span class="topic-num">04</span>
-        <div>
-          <h4>সম্ভাব্যতা (Probability)</h4>
-          <span>শর্তাধীন সম্ভাব্যতা, বেইজের উপপাদ্য</span>
-        </div>
+        <div><h4>প্রবাহী আধান ও চুম্বকত্ব (Moving Charges and Magnetism)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">05</span>
+        <div><h4>চুম্বকত্ব এবং পদার্থ (Magnetism and Matter)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">06</span>
+        <div><h4>তড়িৎ চুম্বকীয় আবেশ (Electromagnetic Induction)</h4></div>
+        <span class="status ready">প্রস্তুত</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">07</span>
+        <div><h4>পরিবর্তী প্রবাহ (Alternating Current)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">08</span>
+        <div><h4>তড়িৎচুম্বকীয় তরঙ্গ (Electromagnetic Waves)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">09</span>
+        <div><h4>রশ্মি আলোক বিজ্ঞান এবং আলোকীয় যন্ত্রাদি (Ray Optics and Optical Instruments)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">10</span>
+        <div><h4>তরঙ্গ আলোক বিজ্ঞান (Wave Optics)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">11</span>
+        <div><h4>বিকিরণ এবং পদার্থের দ্বৈত প্রকৃতি (Dual Nature of Radiation and Matter)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">12</span>
+        <div><h4>পরমাণুসমূহ (Atoms)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">13</span>
+        <div><h4>নিউক্লিয়াস বা কেন্দ্রক (Nuclei)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">14</span>
+        <div><h4>অর্ধপরিবাহী ইলেকট্রনিক্স (Semiconductor Electronics)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">15</span>
+        <div><h4>যোগাযোগ ব্যবস্থা (Communication Systems)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+    </div>
+
+    <div class="topic-list" id="topic-list-math" style="display:none;">
+      <div class="topic-row">
+        <span class="topic-num">01</span>
+        <div><h4>সম্বন্ধ ও অপেক্ষক (Relations and Functions)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">02</span>
+        <div><h4>ত্রিকোণমিতিক বিপরীত বৃত্তীয় অপেক্ষকসমূহ (Inverse Trigonometric Functions)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">03</span>
+        <div><h4>ম্যাট্রিক্স (Matrices)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">04</span>
+        <div><h4>নির্ণায়ক (Determinants)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">05</span>
+        <div><h4>সন্ততা এবং অন্তরকলণযোগ্যতা (Continuity and Differentiability)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">06</span>
+        <div><h4>অন্তরকলজের প্রয়োগ (Application of Derivatives)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">07</span>
+        <div><h4>সমাকল (Integrals)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">08</span>
+        <div><h4>সমাকলের প্রয়োগ (Application of Integrals)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">09</span>
+        <div><h4>অবকল সমীকরণ (Differential Equations)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">10</span>
+        <div><h4>ভেক্টর বীজগণিত (Vector Algebra)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">11</span>
+        <div><h4>ত্রিমাত্রিক জ্যামিতি (Three Dimensional Geometry)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">12</span>
+        <div><h4>রৈখিক প্রোগ্রামবিধি (Linear Programming)</h4></div>
+        <span class="status soon">শীঘ্রই আসছে</span>
+      </div>
+      <div class="topic-row">
+        <span class="topic-num">13</span>
+        <div><h4>সম্ভাবনা (Probability)</h4></div>
         <span class="status soon">শীঘ্রই আসছে</span>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+function showSubject(subject){
+  document.getElementById('topic-list-physics').style.display = subject === 'physics' ? '' : 'none';
+  document.getElementById('topic-list-math').style.display = subject === 'math' ? '' : 'none';
+  document.getElementById('pill-physics').classList.toggle('active', subject === 'physics');
+  document.getElementById('pill-physics').classList.toggle('physics', subject === 'physics');
+  document.getElementById('pill-math').classList.toggle('active', subject === 'math');
+  document.getElementById('pill-math').classList.toggle('math', subject === 'math');
+}
+</script>
 
 <footer>
   <div class="footer-wrap">
