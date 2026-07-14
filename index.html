@@ -1,315 +1,151 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1P — গণিত ও পদার্থবিজ্ঞান</title>
-    <!-- Google Fonts: Noto Sans Bengali -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans Bengali', sans-serif;
-            background-color: #000000;
-            color: #d4d4d4;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ========== নেভিগেশন বার ========== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #1f1f1f;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        /* লোগো কন্টেইনার */
-        .navbar .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .navbar .logo img {
-            height: 36px;
-            width: auto;
-            display: block;
-        }
-
-        /* ব্লিংকিং "1P" টেক্সট – এখন ইটালিক */
-        .logo-text {
-            font-size: 1.5em;
-            font-weight: 700;
-            font-style: italic;      /* ← ইটালিক স্টাইল */
-            color: #ffffff;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.2; }
-        }
-
-        /* ডান পাশের কন্টেইনার */
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .nav-link {
-            font-size: 1.05em;
-            color: #d4d4d4;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
-            color: #a18cd1;
-        }
-
-        .hamburger {
-            font-size: 1.8em;
-            cursor: pointer;
-            color: #d4d4d4;
-            user-select: none;
-            transition: color 0.2s;
-            line-height: 1;
-        }
-
-        .hamburger:hover {
-            color: #a18cd1;
-        }
-
-        /* ড্রপডাউন মেনু */
-        .class-dropdown {
-            display: none;
-            position: absolute;
-            right: 40px;
-            top: 70px;
-            background: #0a0a0a;
-            border: 1px solid #1f1f1f;
-            border-radius: 12px;
-            padding: 15px 20px;
-            z-index: 1001;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            flex-direction: column;
-            gap: 12px;
-            min-width: 150px;
-        }
-
-        .class-dropdown.active {
-            display: flex;
-        }
-
-        .class-dropdown a {
-            font-size: 1.1em;
-            color: #d4d4d4;
-            padding: 8px 10px;
-            border-radius: 8px;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .class-dropdown a:hover {
-            background: #1a1a1a;
-            color: #a78bfa;
-        }
-
-        /* ========== হিরো সেকশন ========== */
-        .hero {
-            padding: 140px 20px 80px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            background: linear-gradient(135deg, #c084fc, #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 1.25em;
-            color: #b0b0b0;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ========== লেসন কার্ড গ্রিড ========== */
-        .lessons {
-            padding: 20px 40px 80px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2em;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: #0a0a0a;
-            border: 1px solid #1f1f1f;
-            border-radius: 20px;
-            padding: 35px 25px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            display: block;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #a78bfa;
-            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.15);
-        }
-
-        .card .icon {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 1.8em;
-            margin-bottom: 12px;
-            color: #ffffff;
-        }
-
-        .card p {
-            color: #b0b0b0;
-            font-size: 1.05em;
-        }
-
-        /* ========== ফুটার ========== */
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: #666;
-            border-top: 1px solid #1a1a1a;
-            font-size: 0.95em;
-        }
-
-        /* ========== রেসপনসিভ ========== */
-        @media (max-width: 600px) {
-            .navbar {
-                padding: 15px 20px;
-            }
-            .nav-right {
-                gap: 15px;
-            }
-            .class-dropdown {
-                right: 20px;
-            }
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            .lessons {
-                padding: 20px 20px 60px;
-            }
-            .logo-text {
-                font-size: 1.2em;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>এক পরমাণু — ক্লাস ৯–১২ পদার্থবিজ্ঞান ও গণিত</title>
+<meta name="description" content="এক পরমাণু: বাংলা ভাষায় নবম থেকে দ্বাদশ শ্রেণির পদার্থবিজ্ঞান ও গণিত শেখার প্ল্যাটফর্ম। ভিডিও লেকচার, নোট ও অনুশীলনী।">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-    <!-- নেভিগেশন -->
-    <nav class="navbar">
-        <!-- লোগো + ইটালিক ব্লিংকিং টেক্সট -->
-        <a href="index.html" class="logo">
-            <img src="logo.webp" alt="1P Logo">
-            <span class="logo-text">1P</span>
-        </a>
-
-        <!-- ডান পাশের অংশ: Home, About, হ্যামবার্গার -->
-        <div class="nav-right">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About</a>
-            <div class="hamburger" onclick="toggleDropdown()">☰</div>
-            <div class="class-dropdown" id="classDropdown">
-                <a href="class9.html">Class 9</a>
-                <a href="class10.html">Class 10</a>
-                <a href="class11.html">Class 11</a>
-                <a href="class12.html">Class 12</a>
-            </div>
-        </div>
+<header class="site">
+  <div class="bar wrap">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke-width="1.4"/>
+        <ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke-width="1.4" transform="rotate(60 20 20)"/>
+        <ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke-width="1.4" transform="rotate(120 20 20)"/>
+        <circle class="nucleus" cx="20" cy="20" r="3.4"/>
+      </svg>
+      এক পরমাণু
+    </a>
+    <button class="nav-toggle" aria-label="মেনু খুলুন">☰</button>
+    <nav class="primary">
+      <a href="index.html" class="active">হোম</a>
+      <a href="physics.html">পদার্থবিজ্ঞান</a>
+      <a href="maths.html">গণিত</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a class="btn-yt" href="https://www.youtube.com/@oneparamanu" target="_blank" rel="noopener">চ্যানেল দেখুন</a>
     </nav>
+  </div>
+</header>
 
-    <!-- হিরো -->
-    <section class="hero">
-        <h1>One Paramanu</h1>
-        <p>নবম থেকে দ্বাদশ শ্রেণির গণিত ও পদার্থবিজ্ঞানের চিন্তা, নোট, এবং কনসেপ্ট—সহজ বাংলায়, সম্পূর্ণ বিনামূল্যে।</p>
-    </section>
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">বাংলা মাধ্যম · ক্লাস ৯ – ১২</div>
+      <h1 class="headline">
+        পদার্থবিজ্ঞান আর গণিত,<br>
+        <span class="chalk-underline">এক পরমাণু</span> থেকে শুরু
+        <svg viewBox="0 0 220 18" preserveAspectRatio="none"><path d="M4 12 C 50 4, 150 4, 216 11"/></svg>
+      </h1>
+      <p class="lede">প্রতিটা জটিল সূত্র আসলে কয়েকটা সহজ ধারণার সমষ্টি। এক পরমাণু চ্যানেলে আমরা নবম থেকে দ্বাদশ শ্রেণির পদার্থবিজ্ঞান আর গণিত ভেঙে ভেঙে, অ্যানিমেশন আর উদাহরণ দিয়ে বাংলায় বোঝাই — যাতে সূত্র মুখস্থ না করে, ধারণাটা সত্যিই মাথায় ঢোকে।</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="physics.html">সিলেবাস দেখুন</a>
+        <a class="btn-ghost" href="https://www.youtube.com/@oneparamanu" target="_blank" rel="noopener">ইউটিউবে সাবস্ক্রাইব করুন</a>
+      </div>
+    </div>
+    <div class="hero-board reveal">
+      <pre>নিউটনের দ্বিতীয় সূত্র:
 
-    <!-- লেসন সেকশন -->
-    <section class="lessons" id="lessons">
-        <h2 class="section-title">যা যা শিখতে পারবে</h2>
-        <div class="card-grid">
-            <a href="physics.html" class="card">
-                <span class="icon">⚛️</span>
-                <h3>পদার্থবিজ্ঞান</h3>
-                <p>বল, শক্তি, আলো, তড়িৎ—কঠিন টপিকগুলো ভেঙে সহজ ব্যাখ্যা।</p>
-            </a>
-            <a href="math.html" class="card">
-                <span class="icon">📐</span>
-                <h3>গণিত</h3>
-                <p>বীজগণিত, ত্রিকোণমিতি, ক্যালকুলাস—প্রতিটি অধ্যায়ের গোছানো নোট ও সূত্র।</p>
-            </a>
+    F = m·a
+
+ভরবেগের পরিবর্তনের হার
+বলের সমানুপাতিক এবং
+বলের দিকেই ঘটে।</pre>
+      <div class="note">— আজকের ক্লাসের নোট, এভাবেই লিখি আমরা।</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">বিষয়সমূহ</div>
+      <h2>দুটো বিষয়, একই যত্নে</h2>
+      <p>পদার্থবিজ্ঞান আর গণিত — দুটোকেই আমরা ভিত্তি থেকে শুরু করে বোর্ড পরীক্ষা আর ধারণাগত স্বচ্ছতা, দুটোর কথা মাথায় রেখে সাজিয়েছি।</p>
+    </div>
+    <div class="subject-grid">
+      <a class="subject-card reveal" href="physics.html">
+        <span class="glyph">০১ / বিষয়</span>
+        <h3>পদার্থবিজ্ঞান</h3>
+        <p>বলবিদ্যা থেকে আধুনিক পদার্থবিজ্ঞান — গতি, বল, তাপ, আলো, বিদ্যুৎ, চুম্বকত্ব — সবকিছু ক্লাসভিত্তিক সাজানো।</p>
+        <span class="go">অধ্যায়গুলো দেখুন</span>
+      </a>
+      <a class="subject-card reveal" href="maths.html">
+        <span class="glyph">০২ / বিষয়</span>
+        <h3>গণিত</h3>
+        <p>বীজগণিত, জ্যামিতি, ত্রিকোণমিতি থেকে ক্যালকুলাস পর্যন্ত — প্রতিটা প্রমাণ আর সূত্র ধাপে ধাপে, উদাহরণ সহ।</p>
+        <span class="go">অধ্যায়গুলো দেখুন</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">সাম্প্রতিক ভিডিও</div>
+      <h2>চ্যানেল থেকে বেছে নেওয়া</h2>
+      <p>এখানে আপাতত কয়েকটা নমুনা কার্ড দেওয়া আছে — নতুন ভিডিও প্রকাশ হলে এখানে যোগ করে নিতে পারেন।</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <div class="video-thumb"><div class="play"></div></div>
+        <div class="vinfo">
+          <h4>নিউটনের সূত্র — সহজ ভাষায়</h4>
+          <p>পদার্থবিজ্ঞান · ক্লাস ৯</p>
         </div>
-    </section>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-thumb"><div class="play"></div></div>
+        <div class="vinfo">
+          <h4>জটিল সংখ্যা ও i-এর ঘাত</h4>
+          <p>গণিত · ক্লাস ১১</p>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-thumb"><div class="play"></div></div>
+        <div class="vinfo">
+          <h4>তড়িৎক্ষেত্র ও কুলম্বের সূত্র</h4>
+          <p>পদার্থবিজ্ঞান · ক্লাস ১২</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ফুটার -->
-    <footer class="footer">
-        <p>© ২০২৫ 1P — শিক্ষার্থীদের জন্য উন্মুক্ত শিক্ষা সহায়তা।</p>
-    </footer>
+<section class="alt">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="eyebrow">কেন এক পরমাণু</div>
+      <h2 style="font-family:var(--font-display); font-weight:400; font-size:clamp(1.7rem,3vw,2.4rem); margin:0 0 14px;">ভিত্তিটা যদি মজবুত হয়</h2>
+      <p style="color:var(--ink-dim);">বাংলা মাধ্যমের বহু ছাত্রছাত্রীর কাছে ভালো মানের বাংলা রিসোর্স সহজলভ্য নয়। এক পরমাণু সেই ফাঁকটা পূরণ করার চেষ্টা করে — মাতৃভাষায়, ধারণা থেকে শুরু করে।</p>
+    </div>
+    <ul class="pillar-list reveal">
+      <li><span class="dot"></span><div><b>ধারণাভিত্তিক পাঠ</b><span class="d">সূত্র মুখস্থ নয় — কেন সূত্রটা এমন, সেটা আগে বোঝানো হয়।</span></div></li>
+      <li><span class="dot"></span><div><b>অ্যানিমেশন সহ ব্যাখ্যা</b><span class="d">গতি, বল, তরঙ্গ — চোখে দেখে বোঝার মতো করে তৈরি অ্যানিমেশন।</span></div></li>
+      <li><span class="dot"></span><div><b>বোর্ড-উপযোগী কাঠামো</b><span class="d">WBBSE ও WBCHSE সিলেবাস অনুসরণ করে ক্লাসভিত্তিক সাজানো।</span></div></li>
+      <li><span class="dot"></span><div><b>সম্পূর্ণ বিনামূল্যে</b><span class="d">সব ভিডিও ও নোট বিনামূল্যে, বাংলা ভাষায়, সবার জন্য।</span></div></li>
+    </ul>
+  </div>
+</section>
 
-    <!-- জাভাস্ক্রিপ্ট -->
-    <script>
-        function toggleDropdown() {
-            document.getElementById("classDropdown").classList.toggle("active");
-        }
+<footer>
+  <div class="wrap">
+    <div class="fbrand">এক পরমাণু</div>
+    <div class="flinks">
+      <a href="physics.html">পদার্থবিজ্ঞান</a>
+      <a href="maths.html">গণিত</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="https://www.youtube.com/@oneparamanu" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <div class="fnote">© 2026 One Paramanu · বাংলা মাধ্যমে বিজ্ঞান ও গণিত শিক্ষা</div>
+  </div>
+</footer>
 
-        document.addEventListener('click', function(event) {
-            const dropdown = document.getElementById("classDropdown");
-            const hamburger = document.querySelector(".hamburger");
-            if (!dropdown.contains(event.target) && event.target !== hamburger && !hamburger.contains(event.target)) {
-                dropdown.classList.remove("active");
-            }
-        });
-    </script>
-
+<script src="assets/script.js"></script>
 </body>
 </html>
