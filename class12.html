@@ -167,16 +167,11 @@
         <div><h4>ভেক্টর বীজগণিত (Vector Algebra)</h4></div>
         <span class="status soon">শীঘ্রই আসছে</span>
       </div>
-      <div class="topic-row" onclick="toggleThumb('m11')">
+      <a href="3d-geometry-videos.html" class="topic-row">
         <span class="topic-num">11</span>
         <div><h4>ত্রিমাত্রিক জ্যামিতি (Three Dimensional Geometry)</h4></div>
         <span class="status ready">প্রস্তুত</span>
-      </div>
-      <div class="thumb-wrap" id="thumb-m11" style="display:none;">
-        <a href="https://youtu.be/Vw0Oh6Q1fI4" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/Vw0Oh6Q1fI4/hqdefault.jpg" alt="ত্রিমাত্রিক জ্যামিতি ভিডিও থাম্বনেইল" class="thumb-img" width="480" height="360" loading="lazy">
-        </a>
-      </div>
+      </a>
       <div class="topic-row">
         <span class="topic-num">12</span>
         <div><h4>রৈখিক প্রোগ্রামবিধি (Linear Programming)</h4></div>
@@ -192,10 +187,6 @@
 </section>
 
 <script>
-function toggleThumb(id){
-  var el = document.getElementById('thumb-' + id);
-  el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
-}
 function showSubject(subject){
   document.getElementById('topic-list-physics').style.display = subject === 'physics' ? '' : 'none';
   document.getElementById('topic-list-math').style.display = subject === 'math' ? '' : 'none';
